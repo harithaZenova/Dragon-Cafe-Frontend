@@ -12,7 +12,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { customerRegister } from "../Services/customerRegister";
 
-// Validation schema
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
   address: Yup.string().required("Address is required"),
@@ -30,17 +29,12 @@ const validationSchema = Yup.object({
 
 const CustomerRegistrationPage = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
-    // Simulate form submission
     try {
       const response = await customerRegister(values);
     window.location.href ="/login"
     } catch (error) {
       alert("Registration unsuccessful!");
     }
-
-    // Send data to the r
-    // Example: axios.post('/api/register', values)
-
     setSubmitting(false);
   };
 

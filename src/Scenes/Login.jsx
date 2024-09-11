@@ -23,8 +23,6 @@ const LoginPage = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await login(values.username, values.password);
-      //console.log(response);
-      
       if (response.data.length !== 0) {
         localStorage.setItem("userId",response.data.userId)
         window.location.href = "/reservation";
@@ -32,7 +30,6 @@ const LoginPage = () => {
     } catch (error) {
       alert("Invalid username or password");
     }
-
     setSubmitting(false);
   };
 
@@ -98,7 +95,7 @@ const LoginPage = () => {
                       Login
                     </Button>
                     <Typography>
-                      Doesn't have an account?{" "}
+                      Doesn't have an account yet?{" "}
                       <a href="/customer-register">Register</a>
                     </Typography>
                   </Grid>
